@@ -1,0 +1,165 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* src/App.css */
+
+/* Style for the entire app container */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Style for the container holding the sidebar and main area */
+.container {
+  margin-left: 50px;
+  margin-top: 50px;
+  display: flex;
+  width: 90%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out; /* Add transition for both properties */
+}
+
+.container.expanded {
+  margin-left: 250px;
+  width: calc(90% - 250px);
+}
+
+/* Updated styles for the sidebar */
+.sidebar {
+  min-width: 50px; /* Minimum width to accommodate the toggle button */
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-200px); /* Initially retracted */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* Add transition for smooth resizing */
+}
+
+/* Updated style for expanded sidebar */
+.sidebar.expanded {
+  transform: translateX(0);
+  width: 250px; /* Width of the expanded sidebar */
+}
+
+/* Style for the toggle button */
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  left: 230px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1; /* Ensure the button appears above the sidebar content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+  background-color: #2980b9;
+}
+
+/* Style for buttons in the sidebar */
+.buttons button {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for the active button */
+.buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style for the form in the sidebar */
+.form {
+  margin-top: 20px;
+}
+
+/* Updated styles for the main area */
+.main-area {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out; /* Add transition for smooth resizing */
+  /* margin-left: 250px; Default width when the sidebar is expanded */
+}
+
+
+/* Adjust the main area width when the sidebar is retracted */
+.sidebar.expanded + .main-area {
+  /* margin-left: 0; */
+}
+
+/* Additional styling for FormA and FormB (customize as needed) */
+.form input[type="text"],
+.form input[type="email"],
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Additional styling for ComponentA and ComponentB (customize as needed) */
+.main-area h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
